@@ -21,15 +21,18 @@
 </script>
 
 <style lang="stylus" scoped>
-    @import '~styles/varibles.styl'
+@import '~styles/varibles.styl'
+    // 头部代码
     .header
         display flex
         line-height .86rem
         background $bgColor
         color: #fff
+        // 头部返回
         .header-back
             width .64rem
             text-align center
+        // 头部搜索
         .header-search
             flex 1
             margin .12rem .2rem .12rem 0
@@ -38,6 +41,7 @@
             background-color #fff;
             color #ccc
             line-height .62rem
+        // 头部城市
         .header-city
             display flex
             width 1.24rem
