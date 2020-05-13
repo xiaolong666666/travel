@@ -25,7 +25,7 @@
     .header
         display flex
         line-height .86rem
-        background-color $bgColor
+        background $bgColor
         color: #fff
         .header-back
             width .64rem
