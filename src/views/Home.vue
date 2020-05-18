@@ -9,12 +9,12 @@
 </template>
 
 <script>
+  import axios from 'axios'
   import HomeHeader from './../components/Home/Header'
   import HomeSwiper from './../components/Home/Swiper'
   import HomeIcons from './../components/Home/Icons'
   import HomeRecommend from './../components/Home/Recommend'
   import HomeWeekend from './../components/Home/Weekend'
-  import axios from 'axios'
   export default {
     name: 'Home',
     components: { HomeHeader, HomeSwiper, HomeIcons, HomeRecommend, HomeWeekend },
@@ -33,7 +33,7 @@
         .then(this.getHomeInfoSucc)
       },
       getHomeInfoSucc(res){
-        console.log(res.data);
+        console.log("Home data",res.data);
         res = res.data;
         if(res.ret && res.data){
           res = res.data;
@@ -51,6 +51,6 @@
   }
 </script>
 
-<style scoped>
+<style lang="stylus" scoped>
 
 </style>
