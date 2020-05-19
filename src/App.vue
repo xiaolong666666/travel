@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <keep-alive>/*优化路由*/
     <router-view></router-view>
-  </div>
+  </keep-alive>
 </template>
 
 <script>

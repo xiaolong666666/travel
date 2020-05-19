@@ -1,15 +1,18 @@
 <template>
     <div class="header">
+        <!-- 返回 -->
         <div class="header-back">
             <div class="iconfont">&#xe624;</div>
         </div>
+        <!-- 搜索框 -->
         <div class="header-search">
             <span class="iconfont">&#xe632;</span>
             输入城市/景点/游玩主题
         </div>
+        <!-- 城市定位 -->
         <router-link to='/city'>
             <div class="header-city">
-                {{city?city:"定位"}}
+                {{this.city}}
                 <span class="iconfont">&#xe72e;</span>
             </div>
         </router-link>
@@ -17,10 +20,11 @@
 </template>
 
 <script>
+    import { mapState } from 'vuex'
     export default {
         name: 'HomeHeader',
-        props: {
-            city: String
+        computed: {
+            ...mapState(['city'])
         }
     }
 </script>
@@ -49,13 +53,13 @@
         // 头部城市
         .header-city
             display flex
-            width 1.24rem
+            margin-right .1rem
             color #fff
             .iconfont
                 align-self center
                 display inline-block
                 height .48rem
                 line-height .48rem
-                margin-top -.1rem
+                margin-top -.08rem
                 font-size .48rem
 </style>

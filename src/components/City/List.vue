@@ -4,19 +4,19 @@
             <div class="area">
                 <div class="title border-topbottom">当前城市</div>
                 <div class="button-list">
-                    <div class="button-wrapper"><div class="button">衡水</div></div>
+                    <div class="button-wrapper"><div class="button">{{this.nowCity}}</div></div>
                 </div>
             </div>
             <div class="area">
                 <div class="title border-topbottom">热门城市</div>
                 <div class="button-list">
-                    <div class="button-wrapper" v-for="item in hot" :key="item.id"><div class="button">{{item.name}}</div></div>
+                    <div class="button-wrapper" v-for="item in hot" :key="item.id" @click="handleCityClick(item.name)"><div class="button">{{item.name}}</div></div>
                 </div>
             </div>
             <div class="area" v-for="(item,key) of cities" :key="key">
                 <div class="title border-topbottom" :ref="key">{{key}}</div>
                 <ul class="item-list">
-                    <li class="item border-bottom" v-for="innerItem of item" :key="innerItem.id">{{innerItem.name}}</li>
+                    <li class="item border-bottom" v-for="innerItem of item" :key="innerItem.id" @click="handleCityClick(innerItem.name)">{{innerItem.name}}</li>
                 </ul>
             </div>
         </div>
@@ -25,6 +25,7 @@
 
 <script>
     import BScroll from 'better-scroll'
+    import { mapState, mapMutations } from 'vuex'
     export default {
         name: 'CityList',
         props: {
@@ -32,15 +33,30 @@
             cities: Object,
             letter: String
         },
-        mounted(){
-            this.scroll = new BScroll(this.$refs.wrapper)
+        computed: {
+            ...mapState({
+                nowCity: 'city'
+            })
+        },
+        methods: {
+            // 改变全局store中city
+            handleCityClick(city){
+                this.changeCity(city)
+                this.$router.push('/')
+            },
+            ...mapMutations(['changeCity'])
         },
         watch: {
+            // 监控手指位置城市list到对应位置
             letter(){
                 const element = this.$refs[this.letter][0]
                 this.scroll.scrollToElement(element)
             }
-        }
+        },
+        mounted(){
+            // 上下滚动
+            this.scroll = new BScroll(this.$refs.wrapper)
+        },
     }
 </script>
 

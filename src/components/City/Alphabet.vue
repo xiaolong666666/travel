@@ -20,6 +20,7 @@
             }
         },
         computed: {
+            // letter转换为数组
             letters(){
                 const letters = [];
                 for(let i in this.cities){
@@ -29,16 +30,20 @@
             }
         },
         updated(){
+            // A到当前范围顶部距离
             this.startY = this.$refs['A'][0].offsetTop
         },
         methods: {
+            // 事件监听
             handleLetterClick(e){
                 this.$emit('change',e.target.innerText)
             },
+            // 手指滑动过程
             handleTouchStart(){
                 this.touchStatus = true
             },
             handleTouchMove(e){
+                // 节流、计算手指位置同时数据监听
                 if(this.touchStatus){
                     if(this.timer){
                         clearTimeout(this.timer)
