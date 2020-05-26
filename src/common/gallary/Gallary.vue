@@ -53,6 +53,7 @@
         top 0
         bottom 0
         background #000
+        z-index 99
         .wrapper
             width 100%
             height 0

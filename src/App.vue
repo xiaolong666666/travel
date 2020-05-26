@@ -1,6 +1,6 @@
 <template>
   <!-- 优化路由 -->
-  <keep-alive>
+  <keep-alive exclude="Detail">
     <router-view></router-view>
   </keep-alive>
 </template>

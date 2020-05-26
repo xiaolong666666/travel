@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue'
 import City from '@/views/City.vue'
-import Detial from '@/views/Detial.vue'
+import Detail from '@/views/Detail.vue'
 
 Vue.use(VueRouter)
 
@@ -18,16 +18,19 @@ const routes = [
     component: City
   },
   {
-    path: '/detial/:id',
-    name: 'Detial',
-    component: Detial
+    path: '/detail/:id',
+    name: 'Detail',
+    component: Detail
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+  scrollBehavior: function (to, from, savedPosition) {
+    return savedPosition || { x: 0, y: 0 }
+  }
+})  
 
 export default router
