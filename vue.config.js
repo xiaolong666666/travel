@@ -8,7 +8,8 @@ module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                'styles': resolve('src/assets/styles')
+                'styles': resolve('src/assets/styles'),
+                'common': resolve('src/common')
             }
         }
     },
