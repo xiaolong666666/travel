@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'babel-polyfill'
 import App from './App.vue'
 import router from './router'
 import store from './store'
