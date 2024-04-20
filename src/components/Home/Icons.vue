@@ -27,7 +27,7 @@
             }
         },
         computed: {
-            // 将数据存在二维数据展现
+            // 将数据存为二维数据展现
             pages(){
                 const pages = [];
                 this.list.forEach((item,index)=>{
